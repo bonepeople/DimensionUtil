@@ -1,0 +1,24 @@
+ext {
+    android = [
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            compileSdkVersion: 28,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+    publish = [
+            userName      : "bonepeople",
+            repositoryName: "maven",
+
+            groupId       : "com.bonepeople.android.lib",
+            artifactId    : "DimensionUtil",
+            publishVersion: "1.0",
+            licences      : ['Apache-2.0'],
+
+            projectName   : "DimensionUtil",
+            projectDesc   : "A util to convert dp and px",
+            githubUrl     : "https://github.com/bonepeople/DimensionUtil",
+            gitUrl        : "https://github.com/bonepeople/DimensionUtil.git"
+    ]
+}
