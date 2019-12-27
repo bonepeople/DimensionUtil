@@ -6,12 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.bonepeople.android.lib.dimensionutil.StatusBarHolder
+        android:id="@+id/statusBarHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_statusBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="↑ 此处是一个状态栏占位控件，宽高均与状态栏高度一致，可以用来调整布局位置。"
+        app:layout_constraintStart_toStartOf="@id/statusBarHolder"
+        app:layout_constraintTop_toBottomOf="@id/statusBarHolder" />
+
     <TextView
         android:id="@+id/textView_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@id/button_1"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textView_statusBar" />
 
     <EditText
         android:id="@+id/editText_2"

@@ -29,7 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button_2).setOnClickListener(this);
         findViewById(R.id.button_3).setOnClickListener(this);
 
-        textView_display.setText("当前手机的屏幕宽度为:" + DimensionUtil.getDisplayWidth() + "，高度为:" + DimensionUtil.getDisplayHeight());
+        StringBuilder builder = new StringBuilder();
+        builder.append("屏幕宽度:");
+        builder.append(DimensionUtil.getDisplayWidth());
+        builder.append("\n屏幕高度:");
+        builder.append(DimensionUtil.getDisplayHeight());
+        builder.append("\n状态栏高度:");
+        builder.append(DimensionUtil.getStatusBarHeight());
+
+        textView_display.setText(builder);
     }
 
     private void dp2px() {

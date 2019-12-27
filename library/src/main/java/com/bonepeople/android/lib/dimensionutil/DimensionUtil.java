@@ -50,6 +50,22 @@ public class DimensionUtil {
     }
 
     /**
+     * 获取状态栏高度
+     *
+     * @return 状态栏高度，单位为px
+     */
+    public static int getStatusBarHeight() {
+        int height = 0;
+        try {
+            int resourceId = Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android");
+            height = Resources.getSystem().getDimensionPixelSize(resourceId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return height;
+    }
+
+    /**
      * 获取屏幕显示区域的宽度
      *
      * @return 屏幕宽度，单位为px
