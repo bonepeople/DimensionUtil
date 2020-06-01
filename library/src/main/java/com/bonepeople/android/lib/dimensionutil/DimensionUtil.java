@@ -50,6 +50,18 @@ public class DimensionUtil {
     }
 
     /**
+     * 获取sp单位数值
+     * <p>
+     * 将px单位的数值转换为sp单位的数值
+     *
+     * @param px 被转换数值，单位为px
+     * @return 转换后的数值，单位为sp
+     */
+    public static float getSp(int px) {
+        return px / Resources.getSystem().getDisplayMetrics().scaledDensity;
+    }
+
+    /**
      * 获取状态栏高度
      *
      * @return 状态栏高度，单位为px
