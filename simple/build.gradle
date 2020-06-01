@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
     defaultConfig {
         applicationId "com.bonepeople.android.dimensionutil.simple"
         minSdkVersion rootProject.android.minSdkVersion
