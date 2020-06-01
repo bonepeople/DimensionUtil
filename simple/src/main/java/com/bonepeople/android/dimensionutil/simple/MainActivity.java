@@ -3,82 +3,90 @@ package com.bonepeople.android.dimensionutil.simple;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bonepeople.android.lib.dimensionutil.DimensionUtil;
+import com.gyf.immersionbar.ImmersionBar;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView textView_display, textView_1, textView_2, textView_3;
-    private EditText editText_1, editText_2, editText_3;
+public class MainActivity extends AppCompatActivity {
+    private EditText editText_px_1, editText_dp, editText_px_2, editText_sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImmersionBar.with(this).init();
 
-        textView_display = findViewById(R.id.textView_display);
-        textView_1 = findViewById(R.id.textView_1);
-        textView_2 = findViewById(R.id.textView_2);
-        textView_3 = findViewById(R.id.textView_3);
-        editText_1 = findViewById(R.id.editText_1);
-        editText_2 = findViewById(R.id.editText_2);
-        editText_3 = findViewById(R.id.editText_3);
-        findViewById(R.id.button_1).setOnClickListener(this);
-        findViewById(R.id.button_2).setOnClickListener(this);
-        findViewById(R.id.button_3).setOnClickListener(this);
+        TextView textView_display = findViewById(R.id.textView_display);
+        editText_px_1 = findViewById(R.id.editText_px_1);
+        editText_dp = findViewById(R.id.editText_dp);
+        editText_px_2 = findViewById(R.id.editText_px_2);
+        editText_sp = findViewById(R.id.editText_sp);
 
         StringBuilder builder = new StringBuilder();
-        builder.append("屏幕宽度:");
+        builder.append("屏幕宽度:\t\t\t");
         builder.append(DimensionUtil.getDisplayWidth());
-        builder.append("\n屏幕高度:");
+        builder.append(" px");
+        builder.append("\n屏幕高度:\t\t\t");
         builder.append(DimensionUtil.getDisplayHeight());
-        builder.append("\n状态栏高度:");
+        builder.append(" px");
+        builder.append("\n状态栏高度:\t\t");
         builder.append(DimensionUtil.getStatusBarHeight());
-
+        builder.append(" px");
         textView_display.setText(builder);
-    }
 
-    private void dp2px() {
-        try {
-            float dp = Float.parseFloat(editText_1.getText().toString());
-            textView_1.setText(String.valueOf(DimensionUtil.getPx(dp)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        editText_px_1.addTextChangedListener((SimpleTextWatcher) s -> px2dp());
+        editText_dp.addTextChangedListener((SimpleTextWatcher) s -> dp2px());
+        editText_px_2.addTextChangedListener((SimpleTextWatcher) s -> px2sp());
+        editText_sp.addTextChangedListener((SimpleTextWatcher) s -> sp2px());
     }
 
     private void px2dp() {
+        if (!editText_px_1.hasFocus())
+            return;
         try {
-            int px = Integer.parseInt(editText_2.getText().toString());
-            textView_2.setText(String.valueOf(DimensionUtil.getDp(px)));
+            int px = Integer.parseInt(editText_px_1.getText().toString());
+            editText_dp.setText(String.valueOf(DimensionUtil.getDp(px)));
         } catch (Exception e) {
             e.printStackTrace();
+            editText_dp.setText("");
+        }
+    }
+
+    private void dp2px() {
+        if (!editText_dp.hasFocus())
+            return;
+        try {
+            float dp = Float.parseFloat(editText_dp.getText().toString());
+            editText_px_1.setText(String.valueOf(DimensionUtil.getPx(dp)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            editText_px_1.setText("");
+        }
+    }
+
+    private void px2sp() {
+        if (!editText_px_2.hasFocus())
+            return;
+        try {
+            int px = Integer.parseInt(editText_px_2.getText().toString());
+            editText_sp.setText(String.valueOf(DimensionUtil.getSp(px)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            editText_sp.setText("");
         }
     }
 
     private void sp2px() {
+        if (!editText_sp.hasFocus())
+            return;
         try {
-            float sp = Float.parseFloat(editText_3.getText().toString());
-            textView_3.setText(String.valueOf(DimensionUtil.getPx(TypedValue.COMPLEX_UNIT_SP, sp)));
+            float sp = Float.parseFloat(editText_sp.getText().toString());
+            editText_px_2.setText(String.valueOf(DimensionUtil.getPx(TypedValue.COMPLEX_UNIT_SP, sp)));
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_1:
-                dp2px();
-                break;
-            case R.id.button_2:
-                px2dp();
-                break;
-            case R.id.button_3:
-                sp2px();
-                break;
+            editText_px_2.setText("");
         }
     }
 }
