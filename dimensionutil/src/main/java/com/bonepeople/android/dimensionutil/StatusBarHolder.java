@@ -1,4 +1,4 @@
-package com.bonepeople.android.lib.dimensionutil;
+package com.bonepeople.android.dimensionutil;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

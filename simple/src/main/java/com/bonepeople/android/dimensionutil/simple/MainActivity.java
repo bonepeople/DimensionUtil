@@ -6,7 +6,7 @@ import android.util.TypedValue;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.bonepeople.android.lib.dimensionutil.DimensionUtil;
+import com.bonepeople.android.dimensionutil.DimensionUtil;
 import com.gyf.immersionbar.ImmersionBar;
 
 public class MainActivity extends AppCompatActivity {

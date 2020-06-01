@@ -1,2 +1,3 @@
-include ':simple', ':library'
 rootProject.name='DimensionUtil'
+include ':simple'
+include ':dimensionutil'

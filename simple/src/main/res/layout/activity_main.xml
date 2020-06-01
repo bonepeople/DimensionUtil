@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="@id/statusBarHolder"
         app:layout_constraintTop_toTopOf="@id/statusBarHolder" />
 
-    <com.bonepeople.android.lib.dimensionutil.StatusBarHolder
+    <com.bonepeople.android.dimensionutil.StatusBarHolder
         android:id="@+id/statusBarHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
