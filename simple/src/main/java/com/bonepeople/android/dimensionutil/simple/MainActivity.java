@@ -1,10 +1,11 @@
 package com.bonepeople.android.dimensionutil.simple;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bonepeople.android.dimensionutil.DimensionUtil;
 import com.gyf.immersionbar.ImmersionBar;
