@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         builder.append("\n状态栏高度:\t\t");
         builder.append(DimensionUtil.getStatusBarHeight());
         builder.append(" px");
+        builder.append("\n导航栏高度:\t\t");
+        builder.append(DimensionUtil.getNavigationBarHeight());
+        builder.append(" px");
         textView_display.setText(builder);
 
         editText_px_1.addTextChangedListener((SimpleTextWatcher) s -> px2dp());
