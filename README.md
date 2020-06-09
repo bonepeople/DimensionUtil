@@ -1,6 +1,4 @@
-### DimensionUtil
-尺寸转换工具类
----
+# DimensionUtil - 尺寸转换工具类
 
 ## 简介
 DimensionUtil是一个用于尺寸转换的工具类，主要的用途是将`SP`转换为`PX`。
@@ -18,9 +16,9 @@ DimensionUtil是一个用于尺寸转换的工具类，主要的用途是将`SP`
 使用Gradle构建工具集成：
 ```groovy
 dependencies {
-    //androud-support
+    // androud support 工程
     implementation 'com.bonepeople.android.lib:DimensionUtil:1.1'
-    //androidX
+    // androidX 工程
     implementation 'com.bonepeople.android.lib:DimensionUtil:1.2.2'
 }
 ```
@@ -79,5 +77,9 @@ dependencies {
 
 ## 混淆说明
   本项目对混淆无任何要求。
+
+## 效果展示
+![示例APP](https://resources.mydaydream.com/img/2020/06/09/6f7357ac-5527-463c-9ff6-6924c6989c73.jpg)
+
 ## 维护计划
   1.更新android-support版本开源库的功能，使其与androidX版本功能一致。

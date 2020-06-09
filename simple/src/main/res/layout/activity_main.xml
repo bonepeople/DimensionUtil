@@ -9,7 +9,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/status"
+        android:alpha="0.6"
         app:layout_constraintBottom_toBottomOf="@id/statusBarHolder"
         app:layout_constraintTop_toTopOf="@id/statusBarHolder" />
 
