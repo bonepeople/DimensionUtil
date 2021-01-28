@@ -9,8 +9,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/status"
         android:alpha="0.6"
+        android:background="@drawable/status"
         app:layout_constraintBottom_toBottomOf="@id/statusBarHolder"
         app:layout_constraintTop_toTopOf="@id/statusBarHolder" />
 
@@ -88,10 +88,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/stat_notify_sync"
-        android:tint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@id/editText_px_1"
         app:layout_constraintStart_toEndOf="@id/editText_px_1"
-        app:layout_constraintTop_toTopOf="@id/editText_px_1" />
+        app:layout_constraintTop_toTopOf="@id/editText_px_1"
+        app:tint="@color/colorPrimaryDark" />
 
     <EditText
         android:id="@+id/editText_dp"
@@ -149,10 +149,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/stat_notify_sync"
-        android:tint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@id/editText_px_2"
         app:layout_constraintStart_toEndOf="@id/editText_px_2"
-        app:layout_constraintTop_toTopOf="@id/editText_px_2" />
+        app:layout_constraintTop_toTopOf="@id/editText_px_2"
+        app:tint="@color/colorPrimaryDark" />
 
     <EditText
         android:id="@+id/editText_sp"

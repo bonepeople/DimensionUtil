@@ -13,12 +13,12 @@ DimensionUtil是一个用于尺寸转换的工具类，主要的用途是将`SP`
 * 获取导航栏高度。
 
 ## 集成方法
-使用Gradle构建工具集成：
+使用Gradle构建工具集成：(新版本工具类仅支持androidx环境)
 ```groovy
 dependencies {
-    // androud support 工程
+    // android support 工程
     implementation 'com.bonepeople.android.lib:DimensionUtil:1.1'
-    // androidX 工程
+    // androidx 工程
     implementation 'com.bonepeople.android.lib:DimensionUtil:1.2.2'
 }
 ```
@@ -81,5 +81,8 @@ dependencies {
 ## 效果展示
 ![示例APP](https://resources.mydaydream.com/img/2020/06/09/6f7357ac-5527-463c-9ff6-6924c6989c73.jpg)
 
+## 国内文档地址
+* https://www.jianshu.com/p/8c148ecb6ef1
+
 ## 维护计划
-  1.更新android-support版本开源库的功能，使其与androidX版本功能一致。
+  1.增加一些UI方面的方法。
