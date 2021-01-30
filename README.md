@@ -11,6 +11,7 @@ DimensionUtil是一个用于尺寸转换的工具类，主要的用途是将`SP`
 * 获取屏幕显示区域的高度。
 * 获取状态栏高度，添加了一个状态栏占位控件。
 * 获取导航栏高度。
+* 支持设置不同的屏幕密度进行计算。
 
 ## 集成方法
 使用Gradle构建工具集成：(新版本工具类仅支持androidx环境)
@@ -19,7 +20,7 @@ dependencies {
     // android support 工程
     implementation 'com.bonepeople.android.lib:DimensionUtil:1.1'
     // androidx 工程
-    implementation 'com.bonepeople.android.lib:DimensionUtil:1.2.2'
+    implementation 'com.bonepeople.android.lib:DimensionUtil:1.3.0'
 }
 ```
 
@@ -74,6 +75,10 @@ dependencies {
             app:layout_constraintTop_toBottomOf="@id/statusBarHolder" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   ```
+  工具类默认使用系统的屏幕密度进行计算，如果App设置了自己的屏幕密度，可以通过`setDefaultMetrics(DisplayMetrics)`方法进行设置，新设置的屏幕密度会保存在静态变量中供后续使用。
+  ```
+  DimensionUtil.setDefaultMetrics(getResources().getDisplayMetrics());
+  ```
 
 ## 混淆说明
   本项目对混淆无任何要求。
@@ -85,4 +90,4 @@ dependencies {
 * https://www.jianshu.com/p/8c148ecb6ef1
 
 ## 维护计划
-  1.增加一些UI方面的方法。
+  不定期进行功能更新，欢迎提出功能需求。

@@ -5,17 +5,23 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * 尺寸转换工具类
  * <p>包含通用的尺寸转换方法</p>
+ * <p>默认使用系统的屏幕密度进行计算，如果需要使用App内部的屏幕密度进行计算，请使用{@link #setDefaultMetrics(DisplayMetrics)}方法进行设置。
+ * 默认情况下App内部的屏幕密度与系统的屏幕密度一致。</p>
  *
  * @author bonepeople
  */
 public class DimensionUtil {
+    private static DisplayMetrics defaultMetrics = Resources.getSystem().getDisplayMetrics();
 
     /**
      * 获取px单位数值
-     * <p>将dp单位的数值转换为px单位的数值，如果转换单位不是dp，可以调用{@link #getPx(int, float)}进行转换</p>
+     * <p>将dp单位的数值转换为px单位的数值，如果转换单位不是dp，可以使用{@link #getPx(int, float)}方法进行转换</p>
      *
      * @param dp 被转换数值，单位为dp
      * @return 转换后的数值，单位为px
@@ -33,7 +39,7 @@ public class DimensionUtil {
      * @return 转换后的数值，单位为px
      */
     public static int getPx(int unit, float value) {
-        return (int) TypedValue.applyDimension(unit, value, Resources.getSystem().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(unit, value, defaultMetrics);
     }
 
     /**
@@ -44,7 +50,7 @@ public class DimensionUtil {
      * @return 转换后的数值，单位为dp
      */
     public static float getDp(int px) {
-        return px / Resources.getSystem().getDisplayMetrics().density;
+        return px / defaultMetrics.density;
     }
 
     /**
@@ -55,7 +61,7 @@ public class DimensionUtil {
      * @return 转换后的数值，单位为sp
      */
     public static float getSp(int px) {
-        return px / Resources.getSystem().getDisplayMetrics().scaledDensity;
+        return px / defaultMetrics.scaledDensity;
     }
 
     /**
@@ -97,7 +103,7 @@ public class DimensionUtil {
      * @return 屏幕宽度，单位为px
      */
     public static int getDisplayWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
+        return defaultMetrics.widthPixels;
     }
 
     /**
@@ -107,17 +113,32 @@ public class DimensionUtil {
      * @return 屏幕高度，单位为px
      */
     public static int getDisplayHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels + getNavigationBarHeight();
+        return defaultMetrics.heightPixels + getNavigationBarHeight();
     }
 
     /**
      * 获取屏幕显示区域的高度
      *
+     * @param activity 需要获取屏幕高度的activity
      * @return 屏幕高度，单位为px
      */
-    public static int getDisplayHeight(Activity activity) {
+    public static int getDisplayHeight(@NonNull Activity activity) {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
         return metrics.heightPixels;
+    }
+
+    /**
+     * 设置新的屏幕密度
+     * <p>新的参数将替换默认的系统密度，推荐使用Activity.getResources().getDisplayMetrics()，这样可以和当前Activity的主题一致。</p>
+     *
+     * @param displayMetrics App环境下的屏幕密度，传入空值将恢复为系统屏幕密度。
+     */
+    public static void setDefaultMetrics(@Nullable DisplayMetrics displayMetrics) {
+        if (displayMetrics == null) {
+            defaultMetrics = Resources.getSystem().getDisplayMetrics();
+        } else {
+            defaultMetrics = displayMetrics;
+        }
     }
 }

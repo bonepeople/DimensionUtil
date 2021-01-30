@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImmersionBar.with(this).init();
+        DimensionUtil.setDefaultMetrics(getResources().getDisplayMetrics());
 
         TextView textView_display = findViewById(R.id.textView_display);
         editText_px_1 = findViewById(R.id.editText_px_1);
