@@ -13,9 +13,10 @@ import androidx.annotation.Nullable;
  * <p>包含通用的尺寸转换方法</p>
  * <p>默认使用系统的屏幕密度进行计算，如果需要使用App内部的屏幕密度进行计算，请使用{@link #setDefaultMetrics(DisplayMetrics)}方法进行设置。
  * 默认情况下App内部的屏幕密度与系统的屏幕密度一致。</p>
- *
+ * @deprecated 此工具类的功能已迁移至AppDensity及AppSystem，请引入com.github.bonepeople:AndroidWidget:1.6.0后使用
  * @author bonepeople
  */
+@Deprecated
 public class DimensionUtil {
     private static DisplayMetrics defaultMetrics = Resources.getSystem().getDisplayMetrics();
 

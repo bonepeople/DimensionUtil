@@ -11,7 +11,9 @@ import androidx.annotation.Nullable;
  * <p>
  * 可以把这个控件放在界面的布局中，宽高设置为wrap_content，这样会出现一个宽高都是状态栏高度的方块，
  * 其他的布局根据这个控件的位置就可以方便的空出状态栏的空间。使用这个控件也可以解决布局中无法引用状态栏高度的问题。
+ * @deprecated 此功能已迁移至com.bonepeople.android.widget.view.StatusBarHolder，请引入com.github.bonepeople:AndroidWidget:1.6.0后使用
  */
+@Deprecated
 public class StatusBarHolder extends View {
 
     public StatusBarHolder(Context context) {
